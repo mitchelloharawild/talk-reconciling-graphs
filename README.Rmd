@@ -1,0 +1,23 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# ISF2023: Graphed reconciliation of time series data and forecasts
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Slides and notes for a talk at the 43rd International Symposium on Forecasting (25-28th June 2023) in Charlottesville, Virginia USA.
+
+#### Abstract
+
+TBC
