@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ISF2023: Reconciliation of structured time series with graphs
+# ISF2023: Reconciliation of structured time series forecasts with graphs
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -16,23 +16,23 @@ for example, national forecasts should equal the sum of state forecasts.
 Forecast reconciliation algorithms enforce these constraints onto
 forecasts of these series. Hierarchical constraints are typically
 visualised with polytrees, where each series is represented by a node
-and edges connect series to their disaggregated series. Grouped
-constraints are shown as multiple disjoint polytrees, with each polytree
-showing a different order of disaggregation by the grouping variables.
-On the other hand, forecast reconciliation computation is typically done
-using matrix algebra, where matrices are used to encode the linear
-constraints.
+and edges connect series to their disaggregated child series. Grouped
+constraints are often shown as multiple disjoint polytrees, with each
+polytree showing a different order of disaggregation by the grouping
+variables. On the other hand, forecast reconciliation computation is
+typically done using matrix algebra, where matrices are used to encode
+the linear constraints.
 
 I propose using directed acyclical graphs (DAGs) to both visualise the
 constraints, and to facilitate forecast reconciliation computation.
 Using DAGs to represent the structure of a coherent collection of time
 series enables more flexible reconciliation structures than those
 possible in hierarchical and grouped designs. Graph structures can
-represent partial reconciliation via disjoint graphs, removing redundant
-aggregation with unbalanced trees, and allow sparse aggregation of
-series from different aggregation levels. Utilising a graph structure to
-describe the coherency of time series also enables improved interfaces
-for analysing specific areas of a hierarchy.
+represent partial reconciliation via disjoint graphs, remove redundant
+aggregation with unbalanced trees, and allow sparse aggregation
+constraints from different levels of disaggregated series. Utilising a
+graph structure to describe the coherency of a time series also enables
+improved interfaces for analysing specific areas of a hierarchy.
 
 This talk will discuss how graphs can be used to represent a wide
 variety of coherent time series structures and demonstrate the
