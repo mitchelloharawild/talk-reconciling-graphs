@@ -1,0 +1,10 @@
+<script>
+  Reveal.on('slidechanged', event => {
+    var blur = document.querySelectorAll(".title>p>strong");
+
+    for (let i = 0; i < blur.length; i++) {
+      blur[i].setAttribute("class", "");
+      blur[i].setAttribute("class", "blur");
+    }
+  });
+</script>
