@@ -568,7 +568,7 @@ tidygraph::tbl_graph(
 :::
 
 ::: {.callout-paper}
-Temporal reconciliation is described in greater detail within @ATHANASOPOULOS201760.
+Temporal reconciliation is described in @ATHANASOPOULOS201760.
 :::
 
 ::: {.fragment .fade-in}
