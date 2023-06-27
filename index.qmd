@@ -727,9 +727,9 @@ This often occurs in these circumstances:
 1. Cross-temporal with series observed at **different granularities**.
 
 ::: {.fragment .fade-in}
-## Example
 
 ::: {.callout-tip}
+## Example
 Suppose `Sales` is reported quarterly, but `Profit` and `Costs` twice yearly.
 
 :::{data-id="graphtemp"}
@@ -784,9 +784,8 @@ tidygraph::tbl_graph(
   visnetwork_graph(width = 600, height = 400) |> 
   visNodes(font = list(size = 25))
 ```
-This allows the higher frequency `Sales` data to be used with the less frequent `Profit` and `Costs` data!
 :::
-
+This allows the higher frequency `Sales` data to be used with the less frequent `Profit` and `Costs` data!
 :::
 :::
 :::
