@@ -322,7 +322,7 @@ The large matrices can become complicated quickly when considering large collect
 
 <br>
 
-Lets instead consider **graphs**. 
+Let's instead consider **graphs**. 
 :::
 :::
 :::
@@ -341,7 +341,7 @@ Lets instead consider **graphs**.
 ### Hierarchical coherence
 
 ::: {.callout-note}
-## Each aggreate has a single constraint
+## Each aggregate has a single constraint
 
 The basic constraint shown before is '[**hierarchical**]{.term}'
 
@@ -371,7 +371,7 @@ tidygraph::tbl_graph(
 ### Hierarchical coherence
 
 ::: {.callout-note}
-## Each aggreate has a single constraint
+## Each aggregate has a single constraint
 
 [**Hierarchical**]{.term} series often have multiple layers
 
@@ -402,7 +402,7 @@ In graph terms, this is known as a [**polytree**]{.term}.
 ::: {.column width="60%"}
 ### Grouped coherence
 
-There's many ways to disaggregate a series.
+There are many ways to disaggregate a series.
 
 Consider where attendees have travelled from, **domestic** or **international**?
 
