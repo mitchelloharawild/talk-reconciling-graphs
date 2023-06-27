@@ -124,24 +124,24 @@ img.icon {
 }
 
 div.callout-tip .callout-icon::before {
-  background-image: url('resources/lightbulb.svg') !important;
+  background-image: url('resources/lightbulb.png') !important;
 }
 div.callout-paper .callout-icon::before {
-  background-image: url('resources/school.svg');
+  background-image: url('resources/school.png');
 }
 div.callout-paper {
   border-left-color: #4582ec !important;
 }
 
 div.callout-link .callout-icon::before {
-  background-image: url('resources/link-variant.svg');
+  background-image: url('resources/link-variant.png');
 }
 div.callout-link {
   border-left-color: #4582ec !important;
 }
 
 div.callout-unsplash .callout-icon::before {
-  background-image: url('resources/unsplash.svg');
+  background-image: url('resources/unsplash.png');
 }
 div.callout-unsplash {
   border-left-color: #000 !important;
@@ -150,7 +150,7 @@ div.callout-unsplash {
 }
 
 div.callout-question .callout-icon::before {
-  background-image: url('resources/help.svg');
+  background-image: url('resources/help.png');
 }
 div.callout-question {
   border-left-color: #04d42c !important;
