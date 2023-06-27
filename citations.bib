@@ -58,3 +58,23 @@ author = {George Athanasopoulos and Rob J. Hyndman and Nikolaos Kourentzes and F
 keywords = {Forecasting, Hierarchical forecasting, Temporal aggregation, Reconciliation, Forecast combination},
 abstract = {This paper introduces the concept of Temporal Hierarchies for time series forecasting. A temporal hierarchy can be constructed for any time series by means of non-overlapping temporal aggregation. Predictions constructed at all aggregation levels are combined with the proposed framework to result in temporally reconciled, accurate and robust forecasts. The implied combination mitigates modelling uncertainty, while the reconciled nature of the forecasts results in a unified prediction that supports aligned decisions at different planning horizons: from short-term operational up to long-term strategic planning. The proposed methodology is independent of forecasting models. It can embed high level managerial forecasts that incorporate complex and unstructured information with lower level statistical forecasts. Our results show that forecasting with temporal hierarchies increases accuracy over conventional forecasting, particularly under increased modelling uncertainty. We discuss organisational implications of the temporally reconciled forecasts using a case study of Accident & Emergency departments.}
 }
+
+@article{hyndman2011,
+author = {Hyndman, Rob J. and Ahmed, Roman A. and Athanasopoulos, George and Shang, Han Lin},
+title = {Optimal Combination Forecasts for Hierarchical Time Series},
+year = {2011},
+issue_date = {September, 2011},
+publisher = {Elsevier Science Publishers B. V.},
+address = {NLD},
+volume = {55},
+number = {9},
+issn = {0167-9473},
+url = {https://doi.org/10.1016/j.csda.2011.03.006},
+doi = {10.1016/j.csda.2011.03.006},
+abstract = {In many applications, there are multiple time series that are hierarchically organized and can be aggregated at several different levels in groups based on products, geography or some other features. We call these ''hierarchical time series''. They are commonly forecast using either a ''bottom-up'' or a ''top-down'' method. In this paper we propose a new approach to hierarchical forecasting which provides optimal forecasts that are better than forecasts produced by either a top-down or a bottom-up approach. Our method is based on independently forecasting all series at all levels of the hierarchy and then using a regression model to optimally combine and reconcile these forecasts. The resulting revised forecasts add up appropriately across the hierarchy, are unbiased and have minimum variance amongst all combination forecasts under some simple assumptions. We show in a simulation study that our method performs well compared to the top-down approach and the bottom-up method. We demonstrate our proposed method by forecasting Australian tourism demand where the data are disaggregated by purpose of travel and geographical region.},
+journal = {Comput. Stat. Data Anal.},
+month = {sep},
+pages = {2579–2589},
+numpages = {11},
+keywords = {Combining forecasts, Hierarchical forecasting, Top-down forecasting, Bottom-up forecasting, Reconciling forecasts, GLS regression}
+}

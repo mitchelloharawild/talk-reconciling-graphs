@@ -223,11 +223,17 @@ $$
 \end{bmatrix}
 $$
 
-or compactly,
+or compactly, $\mathbf{y}_t = \mathbf{S} \mathbf{b}_t$
 
-$$\mathbf{y}_t = \mathbf{S} \mathbf{b}_t$$
 :::
 :::
+
+::: {.fragment .fade-in}
+::: {.callout-paper}
+"Summing" or "structural" matrices are described in @hyndman2011.
+:::
+:::
+
 :::
 :::
 
@@ -281,7 +287,7 @@ The weight of the edges corresponds to the $\mathbf{S}$ matrix.
 
 ## Reconciling forecasts
 
-There are many ways to adjust the forecasts to be coherent, such as MinT [@Wickramasuriya2018OptimalFR]:
+The L2 optimal way to adjust the forecasts to be coherent is MinT [@Wickramasuriya2018OptimalFR]:
 
 $$
   \tilde{\mathbf{y}}_{T+h|T}=\mathbf{S}(\mathbf{S}'\mathbf{W}_{h}^{-1}\mathbf{S})^{-1}\mathbf{S}'\mathbf{W}_{h}^{-1}\hat{\mathbf{y}}_{T+h|T}.
@@ -291,7 +297,7 @@ where $\mathbf{W}_{h}=\text{Var}[(\mathbf{y}_{t+h|t}-\hat{\mathbf{y}}_{t+h|t})]$
 
 ::: {.fragment .fade-in}
 <br>
-There are many reconciliation techniques and formulations that work well.
+There are many other reconciliation techniques and formulations that also work well.
 :::
 :::
 :::
@@ -487,7 +493,7 @@ and then further disaggregated by the other.
 ::: {.column width="50%"}
 ```{r}
 tidygraph::tbl_graph(
-  nodes = tibble(label = c("Attendees", "Domestic", "International", "Domestic\n& Academia", "Domestic\n& Industry", "International\n& Academia", "Interational\n& Industry")),
+  nodes = tibble(label = c("Attendees", "Domestic", "International", "Domestic\n& Academia", "Domestic\n& Industry", "International\n& Academia", "International\n& Industry")),
   edges = tibble(from = c(1, 1, 2, 2, 3, 3), to = c(2, 3, 4, 5, 6, 7))
 ) |>
   visnetwork_hierarchy(width = 300, height = 400)
@@ -525,7 +531,7 @@ The [**grouped**]{.term} structure can be plotted in a single graph.
 
 ```{r}
 tidygraph::tbl_graph(
-  nodes = tibble(label = c("Attendees", "Domestic", "International", "Academia", "Industry", "Domestic\n& Academia", "Domestic\n& Industry", "International\n& Academia", "Interational\n& Industry")),
+  nodes = tibble(label = c("Attendees", "Domestic", "International", "Academia", "Industry", "Domestic\n& Academia", "Domestic\n& Industry", "International\n& Academia", "International\n& Industry")),
   edges = tibble(
     from  = c(1, 1, 1, 1, 2, 4, 2, 5, 3, 4, 3, 5), 
     to    = c(2, 3, 4, 5, 6, 6, 7, 7, 8, 8, 9, 9),
@@ -691,7 +697,7 @@ tidygraph::tbl_graph(
 ::: {.column width="50%"}
 ```{r}
 tidygraph::tbl_graph(
-  nodes = tibble(label = c("Attendees", "Domestic", "International", "Academia", "Industry", "Domestic\n& Academia", "Domestic\n& Industry", "International\n& Academia", "Interational\n& Industry")),
+  nodes = tibble(label = c("Attendees", "Domestic", "International", "Academia", "Industry", "Domestic\n& Academia", "Domestic\n& Industry", "International\n& Academia", "International\n& Industry")),
   edges = tibble(
     from  = c(1, 1, 1, 1, 2, 4, 2, 5, 3, 4, 3, 5), 
     to    = c(2, 3, 4, 5, 6, 6, 7, 7, 8, 8, 9, 9),
@@ -976,7 +982,9 @@ visnetwork_graph(aus_expenditure_graph, width = 600, height = 400)
 ## What does having different top series mean?
 
 ::: {.fragment .fade-in}
-There must be multiple top series (the graph is [**disjoint**]{.term}).
+There must be multiple top series.
+
+This often happens if the graph is [**disjoint**]{.term}.
 :::
 :::
 
