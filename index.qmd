@@ -149,7 +149,7 @@ Supervised by Rob Hyndman and George Athanasopolous
 
 ::: {.callout-question}
 
-## How many forecasters will attend ISF 2024?
+## How many forecasters will attend ISF 2024 and beyond?
 
 ::: {.fragment .fade-in}
 Forecast $\text{Attendees}_{T+h|T}$ with a suitable model and data.
@@ -291,13 +291,7 @@ where $\mathbf{W}_{h}=\text{Var}[(\mathbf{y}_{t+h|t}-\hat{\mathbf{y}}_{t+h|t})]$
 
 ::: {.fragment .fade-in}
 <br>
-There are of course many approaches and formulations, as presented by Daniele Girolimetto yesterday.
-:::
-
-::: {.fragment .fade-in}
-<br>
-However today we're not going to worry about matrices.
-Lets instead focus on **graphs**. 
+There are many reconciliation techniques and formulations that work well.
 :::
 :::
 :::
@@ -305,6 +299,36 @@ Lets instead focus on **graphs**.
 
 ![](backgrounds/darden.jpg){.image-right}
 
+## The basics of reconciliation
+
+::: {.sticker-float}
+![](media/isf2023.png)
+:::
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-tip}
+
+## Reconciling forecasts
+
+Not only are coherent forecasts **more reasonable**, they are **more accurate**!
+
+<br>
+
+::: {.fragment .fade-in}
+
+The large matrices can become complicated quickly when considering large collections of coherent time series.
+
+<br>
+
+Lets instead consider **graphs**. 
+:::
+:::
+:::
+:::
+
+![](backgrounds/darden.jpg){.image-right}
 
 
 
@@ -349,7 +373,7 @@ tidygraph::tbl_graph(
 ::: {.callout-note}
 ## Each aggreate has a single constraint
 
-Hierarchies often have multiple layers
+[**Hierarchical**]{.term} series often have multiple layers
 
 ```{r}
 #| echo: false
@@ -497,7 +521,7 @@ A [**grouped**]{.term} structure has the same top and bottom series.
 ::: {.callout-note}
 ## Considering origin and workplace
 
-The structure can be plotted in a single graph.
+The [**grouped**]{.term} structure can be plotted in a single graph.
 
 ```{r}
 tidygraph::tbl_graph(
@@ -541,6 +565,10 @@ tidygraph::tbl_graph(
   visnetwork_hierarchy(width = 600, height = 200) |> 
   visNodes(font = list(size = 40))
 ```
+:::
+
+::: {.callout-paper}
+Temporal reconciliation is described in greater detail within @ATHANASOPOULOS201760.
 :::
 
 ::: {.fragment .fade-in}
@@ -615,7 +643,12 @@ Temporal coherence constraints are [**grouped**]{.term} can also be represented 
 ```{r}
 tidygraph::tbl_graph(
   nodes = tibble(label = c("Year", "Q1", "Q2", "Q3", "Q4", "Jan-Apr", "May-Aug", "Sep-Dec", month.abb)),
-  edges = tibble(from = c(rep(1, 7), rep(2:5, each = 3), rep(6:8, each = 4)), to = c(2:8, 9:20, 9:20))
+  edges = tibble(
+    from = c(rep(1, 7), rep(2:5, each = 3), rep(6:8, each = 4)), 
+    to = c(2:8, 9:20, 9:20),
+    grp = c(rep(1, 4), rep(2, 3), rep(1, 12), rep(2, 12)),
+    color = hcl.colors(3, "Dark2")[grp]
+  )
 ) |>
   visnetwork_graph(width = 700, height = 500) |> 
   visNodes(font = list(size = 30))
@@ -644,7 +677,12 @@ Since both [**grouped**]{.term} and [**temporal**]{.term} coherence are DAGs, th
 ```{r}
 tidygraph::tbl_graph(
   nodes = tibble(label = c("Year", "Q1", "Q2", "Q3", "Q4", "Jan-Apr", "May-Aug", "Sep-Dec", month.abb)),
-  edges = tibble(from = c(rep(1, 7), rep(2:5, each = 3), rep(6:8, each = 4)), to = c(2:8, 9:20, 9:20))
+  edges = tibble(
+    from = c(rep(1, 7), rep(2:5, each = 3), rep(6:8, each = 4)), 
+    to = c(2:8, 9:20, 9:20),
+    grp = c(rep(1, 4), rep(2, 3), rep(1, 12), rep(2, 12)),
+    color = hcl.colors(3, "Dark2")[grp]
+  )
 ) |>
   visnetwork_graph(width = 300, height = 300) |> 
   visNodes(font = list(size = 30))
@@ -657,7 +695,7 @@ tidygraph::tbl_graph(
   edges = tibble(
     from  = c(1, 1, 1, 1, 2, 4, 2, 5, 3, 4, 3, 5), 
     to    = c(2, 3, 4, 5, 6, 6, 7, 7, 8, 8, 9, 9),
-    color = hcl.colors(3, "Dark2")[c(1,1,2,2,1,2,1,2,1,2,1,2)]
+    color = hcl.colors(4, "Dark2")[c(1,1,2,2,1,2,1,2,1,2,1,2) + 2]
   )
 ) |>
   visnetwork_graph(width = 300, height = 300)
@@ -681,10 +719,16 @@ A [**directed acyclical graph**]{.term} does **not** require a common top and bo
 
 <br>
 
+::: {.fragment .fade-in}
+
+DAGs can describe more general structures than grouped coherence.
+
 ::: {.callout-question}
 ## Is it reasonable to leverage the full generality of DAGs?
+
 ::: {.fragment .fade-in}
 Yes! Let's see why.
+:::
 :::
 :::
 
@@ -700,7 +744,7 @@ Yes! Let's see why.
 ::: {.column width="40%"}
 :::
 ::: {.column width="60%"}
-### Unbalanced structures
+### Unbalanced graphs
 
 What if the coherency structure had different bottom series?
 
@@ -801,6 +845,7 @@ This allows the higher frequency `Sales` data to be used with the less frequent 
 
 2. Multiple **different approaches** to calculating the top series.
 
+::: {.fragment .fade-in}
 ::: {.callout-tip}
 ## Example
 
@@ -814,9 +859,9 @@ For simplicity consider a small part of these graphs. The complete graph structu
 
 :::
 
-
 ::: {.callout-paper}
 This example is used in @Athanasopoulos2020.
+:::
 :::
 
 :::
@@ -921,93 +966,151 @@ visnetwork_graph(aus_expenditure_graph, width = 600, height = 400)
 
 ![](backgrounds/peter-law-2fU_lyraUOA-unsplash.jpg){.image-left}
 
-## Test
-
-
-## {}
-
-::: columns
-::: {.column width="40%"}
-:::
-::: {.column width="60%"}
-**Visualising structured time series**
-:::
-:::
-
-![](backgrounds/yoksel-zok-aEMEMsBNqeo-unsplash.jpg){.image-left}
-
-## {}
+## {auto-animate=true}
 
 ::: columns
 ::: {.column width="60%"}
-Disjoint hierachies
+### Disjoint graphs
+
+::: {.callout-question}
+## What does having different top series mean?
+
+::: {.fragment .fade-in}
+There must be multiple top series (the graph is [**disjoint**]{.term}).
+:::
+:::
+
+::: {.fragment .fade-in}
+This can occur for many reasons:
+
+1. Cross-validation with reconciliation
+2. Partial/local coherency <br>(e.g. not including worldwide total)
+:::
+
 :::
 :::
 
 ![](backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg){.image-right}
 
-## Structures for coherency constraints
 
-* Rob notation for forecast reconciliation
-
-* `hts::gts()`, `hts::hts()`
-* FoReco: Constraint matrix
-* fable: Rectangular structure
-* S-matrix / C-matrix
-* C-matrix (constraint form)
-* Generalised linear constraints (Dani et al,@girolimetto2023point)
-
-## Tricky trees
-
-::: {.callout-tip}
-## Tip with Title
-
-This is an example of a callout with a title.
-:::
-
-::: {.callout-paper}
-## The paper
-
-This is an example of a callout with a title.
-:::
-
-
-## Data exploration with graph structures
-
-
-## Methods of reconciliation
-
-Structural
-
-Projection
-
-Graph
-
-https://arxiv.org/abs/2305.05330
-https://robjhyndman.com/hyndsight/reconciliation-notation.html
-https://robjhyndman.com/publications/hierarchical/
-
-geometry paper - good for understanding
-fpp3 - for grouped and hierarchical basics and definitions
-
-Athanasopoulos, George, Rob J. Hyndman, Nikolaos Kourentzes, and Fotios Petropoulos. 2017. “Forecasting with temporal hierarchies.” European Journal of Operational Research 262 (1): 60–74. https://doi.org/10.1016/j.ejor.2017.02.046. 
-
-
-## What's next?
+## {auto-animate=true}
 
 ::: columns
 ::: {.column width="60%"}
 
-::: {.callout-link}
+1. Cross-validation with reconciliation
+
+::: {.callout-tip}
+It makes no sense to aggregate folds of cross-validation.
+
+::: {.fragment .fade-in}
+
+A suitable DAG for cross-validated hierarchies is 
+
+```{r}
+#| echo: false
+#| output: hide
+tidygraph::tbl_graph(
+  nodes = tibble(label = paste0(c("Attendees", "Academic", "Industry"), "\n(fold ", rep(1:3, each = 3), ")")),
+  edges = tibble(from = c(1, 1, 4, 4, 7, 7), to = c(2, 3, 5, 6, 8, 9))
+) |>
+  visnetwork_graph(width = 600, height = 400)
+```
+
+:::
+
+::: {.fragment .fade-in}
+Each disjoint graph can be reconciled separately.
+:::
+
+:::
+
+:::
+:::
+
+![](backgrounds/firosnv-photography-Rr3B0LH7W3k-unsplash.jpg){.image-right}
+
+## {}
+
+::: columns
+::: {.column width="60%"}
+### Graph coherence
+
+::: {.callout-tip}
+
+## DAGs are reasonable (and very useful!)
+
+Graph coherence allows us to describe more general coherence structures, including
+
+* Disjoint graphs (e.g. cross-validation)
+* Partial coherency (simpler reconciliation)
+* Complex unbalanced graphs
+* Mixed temporal granularity data
+
+:::
+
+:::
+:::
+
+![](backgrounds/eilis-garvey-MskbR8VLNrA-unsplash.jpg){.image-right}
+
+
+## {}
+
+::: columns
+::: {.column width="60%"}
+### Recap
+
+::: {.callout-note}
+
+## Coherence and graph theory
+
+* [**Hierarchical**]{.term} coherence is a [**polytree**]{.term}.
+* [**Grouped**]{.term} coherence is a *restricted* [**DAG**]{.term}.
+* [**Graph**]{.term} coherence is an *unrestricted* [**DAG**]{.term}.
+
+DAGs are a useful tool for representing structured time series and producing coherent forecasts.
+
+:::
+
+::: {.fragment .fade-in}
+
+![](resources/set.svg){fig-align="center"}
+
+:::
+
+:::
+:::
+
+![](backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg){.image-right}
+
+## {}
+
+### What else?
+
+::: columns
+::: {.column width="60%"}
+
+::: {.callout-tip}
+
+## Other benefits
+
+1. Access to efficient graph algorithms
+2. Visualisation of structured time series
+3. Familiar computing grammar for coherent data
+
+:::
+
+::: {.callout-paper}
 
 ## Future work
 
-![](resources/forum.svg){.icon} [social.mitchelloharawild.com](https://social.mitchelloharawild.com/)
+1. Integrate graph reconciliation into fable
+2. Explore relationship between graph coherency and general linearly constrained time series [@girolimetto2023point]
+3. Investigate alternative graph reconciliation methods
 
-![](resources/projector-screen-outline.svg){.icon} [slides.mitchelloharawild.com/coherent-graphs](https://slides.mitchelloharawild.com/coherent-graphs)
-
-![](resources/github.svg){.icon} [mitchelloharawild/talk-reconciling-graphs](https://github.com/mitchelloharawild/talk-reconciling-graphs)
-
+:::
+:::
 :::
 
 ![](backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg){.image-right}
@@ -1065,6 +1168,20 @@ Scan the QR (or go to the Whova app) and click on "Rate Session"
 :::
 
 ![](backgrounds/meric-dagli-7NBO76G5JsE-unsplash.jpg){.image-right}
+
+
+<!-- ## {} -->
+
+<!-- ::: columns -->
+<!-- ::: {.column width="40%"} -->
+<!-- ::: -->
+<!-- ::: {.column width="60%"} -->
+<!-- ### Visualising structured time series -->
+<!-- ::: -->
+<!-- ::: -->
+
+<!-- ![](backgrounds/yoksel-zok-aEMEMsBNqeo-unsplash.jpg){.image-left} -->
+
 
 ## Unsplash credits
 
