@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="111.68977mm"
+   height="51.174541mm"
+   viewBox="0 0 111.68976 51.174542"
+   version="1.1"
+   id="svg1570"
+   sodipodi:docname="set.svg"
+   inkscape:version="1.1.2 (1:1.1+202202050950+0a00cf5339)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1572"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.81638692"
+     inkscape:cx="458.11611"
+     inkscape:cy="252.33133"
+     inkscape:window-width="1872"
+     inkscape:window-height="1051"
+     inkscape:window-x="48"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1567" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-46.186872,-81.651216)">
+    <ellipse
+       style="fill:#2382f1;fill-opacity:0.266667;stroke:#000000;stroke-width:0.268896;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+       id="path1653"
+       cx="102.03175"
+       cy="107.23849"
+       rx="55.710434"
+       ry="25.452824" />
+    <ellipse
+       style="fill:#2382f1;fill-opacity:0.266667;stroke:#000000;stroke-width:0.266036;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+       id="ellipse3642"
+       cx="93.423073"
+       cy="108.10227"
+       rx="41.151905"
+       ry="17.910921" />
+    <ellipse
+       style="fill:#2382f1;fill-opacity:0.266667;stroke:#000000;stroke-width:0.24187;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+       id="ellipse3538"
+       cx="85.258354"
+       cy="110.00962"
+       rx="28.306175"
+       ry="9.4164476" />
+    <text
+       xml:space="preserve"
+       style="font-weight:300;font-size:7.01708px;line-height:30.5;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Light';letter-spacing:0px;word-spacing:0.183321px;stroke-width:0.087713"
+       x="96.248581"
+       y="88.551704"
+       id="text4770"><tspan
+         sodipodi:role="line"
+         id="tspan4768"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.087713"
+         x="96.248581"
+         y="88.551704"
+         rotate="0 0 0 0 0 0">Graph</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:300;font-size:7.01708px;line-height:30.5;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Light';letter-spacing:0px;word-spacing:0.183321px;stroke-width:0.087713"
+       x="80.470871"
+       y="98.072731"
+       id="text7438"><tspan
+         sodipodi:role="line"
+         id="tspan7436"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.087713"
+         x="80.470871"
+         y="98.072731"
+         rotate="0 0 0 0 0 0 0 0">Grouped</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:300;font-size:7.01708px;line-height:30.5;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Light';letter-spacing:0px;word-spacing:0.183321px;stroke-width:0.087713"
+       x="64.693153"
+       y="112.76223"
+       id="text7442"><tspan
+         sodipodi:role="line"
+         id="tspan7440"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.087713"
+         x="64.693153"
+         y="112.76223"
+         rotate="0 0 0 0 0 0 0 0 0 0 0 0 0">Hierarchical</tspan></text>
+  </g>
+</svg>
