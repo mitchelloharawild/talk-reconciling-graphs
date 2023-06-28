@@ -9,6 +9,11 @@
 Slides and notes for a talk at the 43rd International Symposium on
 Forecasting (25-28th June 2023) in Charlottesville, Virginia USA.
 
+A recording of this presentation is available on YouTube here:
+<https://www.youtube.com/watch?v=FBM-nEbeHTw>
+
+[![](preview.jpg)](https://www.youtube.com/watch?v=FBM-nEbeHTw)
+
 #### Abstract
 
 Large collections of time series are often constrained to be coherent;
